@@ -1,0 +1,15 @@
+<ul style="font-size: 20px">
+  <% @tasks.each do |task|%>
+    <li style="list-style-type: none">
+      <% if task.status %>
+        <i class="fa fa-check-square-o"></i>
+      <% else %>
+        <i class="fa fa-square-o"></i>
+      <% end %>
+      <%= link_to task.name, tasks_id_path(task)%>
+
+    </li>
+  <% end %>
+</ul>
+<hr>
+<%= link_to "Add Task", tasks_new_path, {class: 'btn btn-primary btn-sm'}%>

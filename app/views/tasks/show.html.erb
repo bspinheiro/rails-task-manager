@@ -1,0 +1,29 @@
+
+<ul style="font-size: 20px">
+  <li style="list-style-type: none">
+    <% if @task.status %>
+      <i class="fa fa-check-square-o"></i>
+    <% else %>
+      <i class="fa fa-square-o"></i>
+    <% end %>
+   <%= @task.name %>
+  </li>
+</ul>
+
+<hr>
+
+<div class="row">
+  <div class="col-xs-6">
+   Created at:
+    <%= @task.created_at.strftime("%H:%M:%S %d.%m.%Y") %>
+  <br>
+   Last updated:
+    <%= @task.updated_at.strftime("%H:%M:%S %d.%m.%Y") %>
+  </div>
+
+  <div class="col-xs-6" style="text-align:right">
+  <%= link_to "All Tasks", tasks_path, {class: 'btn btn-primary btn-sm'}%>
+  <%= link_to "Edit", tasks_edit_path(@task), {class: 'btn btn-info btn-sm'}%>
+  <%= link_to "Delete", tasks_destroy_path(@task), {class: 'btn btn-danger btn-sm', method: :delete}%>
+  </div>
+</div>
